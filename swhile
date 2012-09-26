@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Script para demostrar uso de While loop
+
+for i in `dpkg -l |grep mysql|awk -F ' ' '{print $2}'` ; do
+echo "El paquete $i es del programa mysql"
+done
+

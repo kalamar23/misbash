@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# Script con base de datos creando un archivo
+
+take_out1() {
+recno=0
+clear
+echo "Bienvenido al script de apuntes"
+echo -n "Escribe un nombre para la base de datos:"
+read filename
+while [ -z $filename ]
+do
+if [ -z $filename ];then
+echo "Usted quiere seguir ? debe escribir un nombre para la base de datos"
+echo -n "Por favor dele un nombre a la base de datos:"
+read filename
+fi
+done
+
+if  [ ! -f $filename ]; then
+echo "La base de datos $filename no existe, creando: $filename"
+echo "Esta es una base de datos que contiene informacion" > $filename
+fi
+
+echo "apunte creado en el dia `date`" > /tmp/input0.$$
+
+#loop sin fin
+while : ;do
+echo -n "Nombre de apunte:" 
+read apun
+echo -n "hora:"
+read hor
+echo -n "Algun registro:"
+read reg
+echo -n "Los datos estan ok ? [ s/n]"
+read opcion
+if [ $opcion = s -o $opcion = S ];then
+recno=`expr $recno + 1`
+echo "$recno. $apun creado a las $hor con registro:$reg" >> /tmp/input0.$$
+fi
+echo -n "Quiere ingresar un nuevo apunte [ s/n ]"
+read continuar
+if [ $continuar = n -o $continuar = N ]; then
+cat /tmp/input0.$$ >> $filename
+rm -f /tmp/input0.$$
+return #salir del loop
+fi
+done
+}
+# Ahora se ejecutara la funcion
+take_out1

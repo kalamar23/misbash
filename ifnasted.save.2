@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# script para demostrar uso de nested 
+echo "1) Devolvera la fecha actual"
+echo "2) Lista los archivos del directorio actual"
+echo -n "Ingresa la opcion [1 o 2]"
+read opcion
+
+if [ $opcion -eq 1 ];then
+date
+else # opcion nested ####
+
+ if [ $opcion -eq 2 ]; then
+	ls -l
+ else 
+ echo "su opción no es valida"
+ fi
+fi

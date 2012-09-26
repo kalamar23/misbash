@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# script para demostrar uso de loop for
+
+if [ $# -eq 0 ]; then
+echo "No ha ingresado ningun argumento"
+echo "syntax: $0 numero"
+echo "imprime la tabla de multiplicacion para el numero indicado"
+exit 1
+fi
+n=$1
+for i in 1 2 3 4 5 6 7 8 9 10;do
+echo "$n * $i=`expr $n \* $i`"
+done

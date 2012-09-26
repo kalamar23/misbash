@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Script para testear uso de test
+
+if test $# -eq 0; then
+echo "Usted debe ingresar un argumento"
+else 
+echo $-
+fi
+
+
+

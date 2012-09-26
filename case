@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Script para demostrar uso de case comando
+
+guia() { echo "Este programa fue hecho por claudio barraza"; echo "Todos los derechos reservados 2011" ; exit 0 ; }
+
+echo "Usted debe ingresar una opción"
+echo " 1) Acerca de"
+echo " 2) ls -l (lista los archivos)"
+echo " 3) Lista de usuarios de sistema"
+echo -n "Ingrese su opción [1  2 o 3]"
+read opcion
+
+case $opcion in 
+1) guia ;;
+2) ls -l ;;
+3) cat /etc/passwd | cut -d":" -f1 ;;
+esac
+

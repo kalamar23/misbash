@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Script para demostrar aprendido
+echo "hola bienvenido al programa de prueba"
+echo "Por favor escoje nombre de usuario"
+opciones="claudio mauricio felipe"
+select esc in $opciones;do
+if [ $esc = claudio ];then
+echo "Hola $esc , tu tienes actualmente 31 años"
+elif [ $esc = mauricio ];then
+echo "Hola $esc, tu tienes actualmente 4 años"
+elif [ $esc = felipe ]; then
+echo "hola $esc, tu tienes solo 3 meses de vida"
+fi
+done
+

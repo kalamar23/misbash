@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# Este es un script de base de datos
+take_out1() {
+recno=0
+clear
+echo "Hola bienvenido a esta simple utilidad para almacenar apuntes"
+echo -n "Por favor ingrese un nombre a su base de datos:"
+read filename
+
+while [ -z $filename ];do
+echo -n "Usted debe ingresar  un nombre a la base de datos:"
+read filename
+done
+
+if [ ! -f $filename ]; then
+echo "La base de datos $filename no existe, creando la base $filename"
+echo "Base de datos de diferentes apuntes" > $filename
+fi
+
+echo "Apunte creado el dia: `date`" > /tmp/input0.$$
+
+while : ; do
+echo -n "Ingrese un nombre al apunte:"
+read napun
+echo -n "Hora del apunte:"
+read hora
+echo -n "Escriba su apunte:"
+read apun
+echo "Los datos ingresados estan ok ?"
+OPCIONES="si no"
+select op in $OPCIONES;do
+if [ "$op" = "si" ];then 
+recno=`expr $recno + 1`
+echo "$recno. El siguiente apunte con nombre $napun fue creado a las $hora , el mensaje es $apun" >> /tmp/input0.$$
+fi
+done
+echo "Desea crear otro apunte ?"
+OPCIONES2="si no"
+select op2 in $OPCIONES2;do
+if [ "$op2" = "no" ]; then
+cat /tmp/input0.$$ >> $filename
+rm -f /tmp/input.$$
+return
+fi
+done
+done
+}
+
+#fin de funcion , ahora ejecutar funcion
+take_out1

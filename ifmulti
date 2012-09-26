@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Script de if nasted
+opcion=0
+echo "Escoje la opcion 1 para Hola"
+echo "Escoje la opci{on 2 pára Hola tu opcion es 2"
+read opcion
+if [ $opcion -eq 1 ];then
+echo "Hola tu opcion es la 1"
+elif [ $opcion -eq 2 ];then
+echo "hola tu opcion es 2"
+else
+echo "Su opción es invalida"
+fi
+

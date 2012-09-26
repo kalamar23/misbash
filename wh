@@ -1,0 +1,13 @@
+#!/bin/bash
+# 
+# Script para while
+if [ $# -eq 0 ];then
+echo "Usted debe ingresar un numero"
+echo "syntax: $0 mas numero"
+fi
+
+while [ $1 = 2 ] ;do
+echo "el numero ingresado es $1, y corresponde a un numero aceptado"
+break
+done
+

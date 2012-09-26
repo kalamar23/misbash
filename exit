@@ -1,0 +1,15 @@
+#!/bin/bash
+# 
+# Script para mostrar opción Exit
+
+echo -n "Hola bienvenido , por favor escribe tu nombre:"
+read nom
+if [ $nom = claudio -o $nom = Claudio ];then
+echo "Hola bienvenido $nom, ya te reconocio el sistema"
+else
+echo "lo siento tu no eres un usuario reconocido"
+exit
+fi
+ 
+echo "Ahora introduzca su dirección:"
+

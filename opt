@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "te gusta el loly?"
+OPCIONES="si no"
+select opt in $OPCIONES; do
+  if [ "$opt" = "si" ]; then
+     echo que bien!
+     exit
+  elif [ "$opt" = "no" ]; then
+     echo que mal!
+     exit
+  fi
+done

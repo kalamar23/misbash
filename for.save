@@ -1,0 +1,3 @@
+for archivo in `ls`;do
+cp $archivo backup/$archivo
+done

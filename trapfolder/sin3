@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# Script para demostrar uso de trap base de datos
+
+take_out1() {
+recno=0
+clear
+echo "Bienvenido al script de apuntes"
+echo -n "Por favor ingrese un nombre para la base de datos:"
+read filename
+
+#loop while para condición
+
+while [ -z $filename ];do
+echo -n "usted debe ingresar un nombre a la base datos:"
+read filename
+done
+
+if  [ ! -f $filename ];then
+echo "La base de datos $filename no existe, creando $filename"
+echo "Los apuntes de mi empresa de reparacion" > $filename
+fi
+echo "Esta entrada fue creada el dia:`date`" > /tmp/input0.$$
+#
+#Loop infinito
+#
+while : ;do
+echo -n "Nombre del apunte:"
+read apun
+echo -n "Hora del apunte:"
+read tim
+echo -n "Su registro:"
+read reg
+echo -n "Los datos ingresados estan correctos [ S o N ]"
+read opcion
+ 
+if [ $opcion = s -o $opcion = S ];then
+recno=`expr $recno + 1`
+echo " $recno. $apun fue creado a las $tim registro:$reg " >> /tmp/input0.$$ 
+fi
+echo -n "Desea agregar un nuevo apunte [ S o N ]:"
+read opcion2
+if [ $opcion2 = n -o $opcion2 = N ]; then
+cat /tmp/input0.$$ >> $filename
+rm -f /tmp/input0.$$
+return #termina y cierra el loop
+fi
+done
+}
+
+#llamando a la función
+take_out1

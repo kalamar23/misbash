@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Script para demostrar el comando for  por mi mismo
+
+echo "Este script mostrara una bienvenida a todos los usuarios de sistema"
+
+for usuarios in `cat /etc/passwd| cut -d":" -f1`
+do
+echo "Hola bienvenido $usuarios"
+done
+

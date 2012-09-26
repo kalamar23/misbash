@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# script para demostrar el comando while
+if [ $# -eq 0 ]
+then 
+echo "No ha ingresado un argumento"
+echo "Syntax: $0 numero"
+echo "Use para mostrar tabla de multiplicacion para el numero indicado"
+exit 1
+fi
+n=$1
+i=1
+while [ $i -le 10 ]
+do
+echo "$n * $i=`expr $n \* $i`"
+i=`expr $i + 1`
+done
+
+
